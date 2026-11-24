@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — source of truth is DESIGN.md.
+ * Values were extracted from the HTML embeds of the approved Wix site
+ * (docs/audit/), using the Início/Bem-vindo bebê palette as the canonical one.
+ */
+@theme {
+  /* Breakpoints match the original embeds (mobile < 761px, tablet < 901px). */
+  --breakpoint-md: 47.5625rem;
+  --breakpoint-lg: 56.3125rem;
+
+  /* Fonts: the --font-* variables below come from next/font in app/layout.tsx. */
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-manrope), Arial, sans-serif;
+
+  /* Surfaces */
+  --color-paper: #f4ede3;
+  --color-paper-2: #eee3d7;
+  --color-sand: #eadfce;
+  --color-cream: #fffdf9;
+
+  /* Text */
+  --color-ink: #2f2724;
+  --color-ink-deep: #1e1917;
+  --color-espresso: #241e1c;
+  --color-muted: #665853;
+
+  /* Rose — 500 is decorative only; 600 for display-size text; 700 for small text (AA). */
+  --color-rose-500: #a76f6d;
+  --color-rose-600: #9a5f61;
+  --color-rose-700: #805556;
+  --color-blush: #d8b8ad;
+  --color-blush-light: #f1d5c3;
+
+  /* Caramel — 500 is the logo color; 700 carries text on top of it (AA with white). */
+  --color-caramel-500: #9d8168;
+  --color-caramel-700: #866d57;
+
+  /* Sage */
+  --color-sage: #5e6d5c;
+  --color-sage-light: #dfe5d9;
+
+  /* Lines */
+  --color-line: #cfc0b6;
+  --color-line-strong: #bdaea5;
+
+  /* Type scale (display sizes are fluid, like the originals) */
+  --text-eyebrow: 0.6875rem;
+  --text-eyebrow--letter-spacing: 0.2em;
+  --text-display: clamp(3.6875rem, 7vw, 6.75rem);
+  --text-display--line-height: 0.95;
+  --text-title: clamp(3.25rem, 6vw, 5.25rem);
+  --text-title--line-height: 0.95;
+  --text-heading: 2.375rem;
+  --text-heading--line-height: 1;
+
+  /* Spacing — section rhythm */
+  --spacing-section: 7.5rem;
+  --spacing-section-sm: 5.3125rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 0.95;
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+}
+
+/* Page container: 1160px max, 24px side gutters (17px on mobile). */
+@utility container-site {
+  width: min(1160px, calc(100% - 48px));
+  margin-inline: auto;
+
+  @media (width < 47.5625rem) {
+    width: min(100% - 34px, 620px);
+  }
+}
+
+/* Signature asymmetric photo shapes. */
+@utility shape-leaf {
+  border-radius: 0 90px 0 90px;
+}
+
+@utility shape-corner {
+  border-radius: 0 55px 0 0;
+}
+
+@layer components {
+  .eyebrow {
+    font-size: var(--text-eyebrow);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-rose-700);
+  }
+
+  /* Italic serif highlight inside headings: "A infância *merece tempo*". */
+  .accent {
+    color: var(--color-rose-600);
+    font-style: italic;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 15px 22px;
+    background: var(--color-ink);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .btn:hover {
+    background: var(--color-ink-deep);
+    transform: translateY(-2px);
+  }
+
+  .btn-light {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .btn-light:hover {
+    background: var(--color-cream);
+  }
+
+  /* Underlined uppercase text link: "Leia mais ↗". */
+  .link-underline {
+    color: var(--color-ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-rose-500);
+    padding-bottom: 6px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Post body typography (Markdown output has no classes). */
+  .prose-post p {
+    margin: 0 0 1.4em;
+  }
+
+  .prose-post h2 {
+    font-size: 2.5rem;
+    margin: 1.6em 0 0.6em;
+  }
+
+  .prose-post a {
+    color: var(--color-rose-700);
+    text-underline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

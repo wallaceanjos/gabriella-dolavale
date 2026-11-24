@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gabriela-dolavale",
+  "compatibility_date": "2026-10-13",
+
+  // Script-less Worker: static assets only. Asset requests are free and
+  // unlimited, so they don't count against the account's Workers quota.
+  "assets": {
+    "directory": "./out",
+    // out/404.html is Next's error page (app/not-found.tsx).
+    "not_found_handling": "404-page"
+  }
+}

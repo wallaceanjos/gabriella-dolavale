@@ -1,0 +1,17 @@
+# Old Wix URLs -> new routes. Cloudflare reads this file natively; for GitHub Pages,
+# scripts/static-redirects.mjs turns the exact-path rules into redirect pages at build time.
+# Wix slugs had accents; both the percent-encoded and the raw form are listed.
+/in%C3%ADcio / 301
+/início / 301
+/inicio / 301
+/em-manutencao / 301
+/artigos/categories/* /artigos/ 301
+/blog /artigos/ 301
+/blog/ /artigos/ 301
+/post/suplementa%C3%A7%C3%A3o-na-gesta%C3%A7%C3%A3o /artigos/suplementacao-na-gestacao/ 301
+/post/suplementação-na-gestação /artigos/suplementacao-na-gestacao/ 301
+/post/a-import%C3%A2ncia-da-consulta-de-pr%C3%A9-natal-com-pediatra /artigos/consulta-de-pre-natal-com-pediatra/ 301
+/post/a-importância-da-consulta-de-pré-natal-com-pediatra /artigos/consulta-de-pre-natal-com-pediatra/ 301
+/post/a-import%C3%A2ncia-da-suplementa%C3%A7%C3%A3o-na-pediatria /artigos/suplementacao-na-pediatria/ 301
+/post/a-importância-da-suplementação-na-pediatria /artigos/suplementacao-na-pediatria/ 301
+/post/* /artigos/ 301

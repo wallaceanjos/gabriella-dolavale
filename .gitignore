@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# Next.js build
+.next/
+/out
+next-env.d.ts
+*.tsbuildinfo
+
+# Cloudflare
+.wrangler/
+worker-configuration.d.ts
+
+# misc
+coverage/
+.DS_Store
+*.log
+
+# env
+.env*
+!.env.example
+
+# private notes (accounts, logins) — never commit
+*.local.md
+*.local.json
+
+# client deliverables (videos, exports) — large binaries, kept out of git
+entregas/
+
+# Wix audit (screenshots, inventory, original sources) — internal notes, kept local only
+docs/audit/
